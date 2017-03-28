@@ -1,0 +1,17 @@
+{
+  "name": "acted",
+  "version": "1.0.0",
+  "description": "flexible and composable actor library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "actor",
+    "async",
+    "promise",
+    "coroutine"
+  ],
+  "author": "Gaetano Checinski",
+  "license": "ISC"
+}
