@@ -13,5 +13,8 @@
     "coroutine"
   ],
   "author": "Gaetano Checinski",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "co": "^4.6.0"
+  }
 }
