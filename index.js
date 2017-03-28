@@ -1,7 +1,7 @@
-import co from 'co';
+let co = require('co');
 
-export const shift = q => q.shift();
-export const actor = (act, pick = shift) => {
+const shift = q => q.shift();
+const actor = (act, pick = shift) => {
   let queue = [];
   let notify = ()=>{};
 
@@ -40,19 +40,23 @@ export const actor = (act, pick = shift) => {
 
 const wait = (ms, x) => new Promise(d => setTimeout(_=>d(x), ms));
 
-export const timeWindowed = (work, ms) =>
+const timeWindowed = (work, ms) =>
   x => work(_=>Promise.all([x(), wait(ms)]))
     .then(x=>x[0])
 
-export function* worker(next) {
+function* worker(next) {
   while(1) {
     yield (yield next())()
   }
 }
 
-/*
-const tw = timeWindowed(
-  actor(worker)
-  ,1000
-);
-*/
+
+module.exports = {
+  worker,
+  wait,
+  timeWindowed,
+  actor,
+  shift
+}
+
+
